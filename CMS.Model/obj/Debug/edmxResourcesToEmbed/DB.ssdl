@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CMSDBModelStoreContainer">
+    <EntitySet Name="Category" EntityType="CMSDBModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="File" EntityType="CMSDBModel.Store.File" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Note" EntityType="CMSDBModel.Store.Note" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysModule" EntityType="CMSDBModel.Store.SysModule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysSample" EntityType="CMSDBModel.Store.SysSample" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="CMSDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SysModule_SysModule" Association="CMSDBModel.Store.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FileName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="FileAddress" Type="varchar" MaxLength="100" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Content" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="50" />
+    <Property Name="LastViewedTime" Type="datetime" />
+    <Property Name="LastViewedPerson" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="200" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="varchar" MaxLength="200" />
+    <Property Name="Iconic" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="4000" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsLast" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Bir" Type="datetime" />
+    <Property Name="Photo" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="text" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="FirstName" Type="varchar" MaxLength="200" />
+    <Property Name="LastName" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_SysModule_SysModule">
+    <End Role="SysModule" Type="CMSDBModel.Store.SysModule" Multiplicity="0..1" />
+    <End Role="SysModule1" Type="CMSDBModel.Store.SysModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

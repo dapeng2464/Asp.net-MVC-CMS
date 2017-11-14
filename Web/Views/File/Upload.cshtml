@@ -1,0 +1,72 @@
+﻿@model CMS.Model.Sys.FileModel
+@{
+    ViewBag.Title = "Upload";
+}
+
+<html>
+<head>
+
+<style type="text/css">
+    .field-validation-error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<form id="uploadFileSub"  method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend></legend>
+        <ul class="lifile">
+            <li>
+                @Html.LabelFor(m => m.Category)<br />
+                @Html.TextBoxFor(m => m.Category, new { maxlength = 50 })
+                @Html.ValidationMessageFor(m => m.Category)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Description)<br />
+                @Html.TextBoxFor(m => m.Description, new { maxlength = 200 })
+                @Html.ValidationMessageFor(m => m.Description)<br />
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Files)
+                @Html.TextBoxFor(m => m.Files, new { type = "file" })
+                @Html.ValidationMessageFor(m => m.Files)
+                <span id="warning" style="color:red;font-size:large;"></span>
+            </li>
+            <li>
+                @*<input type="submit" value="Submit" />*@
+                <button >submit</button>
+            </li>
+        </ul>
+
+    </fieldset>
+</form>
+
+<script>
+    $("#uploadFileSub").submit(function (event) {
+        alert("111");
+        var formData = new FormData($(this)[0]);
+        $.ajax({
+            url: '/File/Upload',
+            type: 'Post',
+            data: formData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                if (data == 1) {
+                    alert("true");
+                    window.parent.frameReturnByMes("success");
+                    window.parent.frameReturnByReload(true);
+                    window.parent.frameReturnByClose()
+                }
+                else {
+                     alert("fail");
+                    window.parent.frameReturnByMes("failed");
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

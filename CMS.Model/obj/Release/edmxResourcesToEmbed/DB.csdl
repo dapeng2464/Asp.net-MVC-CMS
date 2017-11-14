@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBContainer" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="File" EntityType="CMSDBModel.File" />
+    <EntitySet Name="Note" EntityType="CMSDBModel.Note" />
+    <EntitySet Name="SysModule" EntityType="CMSDBModel.SysModule" />
+    <EntitySet Name="User" EntityType="CMSDBModel.User" />
+    <AssociationSet Name="FK_SysModule_SysModule" Association="CMSDBModel.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+    <EntitySet Name="SysSample" EntityType="CMSDBModel.SysSample" />
+  </EntityContainer>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FileName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="FileAddress" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Category" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Content" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Category" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastViewedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastViewedPerson" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ParentId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Url" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Iconic" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsLast" Type="Boolean" Nullable="false" />
+    <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SysModule1" Relationship="CMSDBModel.FK_SysModule_SysModule" FromRole="SysModule" ToRole="SysModule1" />
+    <NavigationProperty Name="SysModule2" Relationship="CMSDBModel.FK_SysModule_SysModule" FromRole="SysModule1" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_SysModule_SysModule">
+    <End Role="SysModule" Type="CMSDBModel.SysModule" Multiplicity="0..1" />
+    <End Role="SysModule1" Type="CMSDBModel.SysModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Age" />
+    <Property Type="DateTime" Name="Bir" Precision="3" />
+    <Property Type="String" Name="Photo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+</Schema>

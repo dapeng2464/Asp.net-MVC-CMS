@@ -1,0 +1,8 @@
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\CMS.Common.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Debug\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\obj\Debug\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\obj\Debug\CMS.Common.pdb

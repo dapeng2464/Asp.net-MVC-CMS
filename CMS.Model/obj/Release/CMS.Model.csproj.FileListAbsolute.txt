@@ -1,0 +1,13 @@
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\CMS.Model.dll.config
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\CMS.Model.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\CMS.Model.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\EntityFramework.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\EntityFramework.xml
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\obj\Release\CMS.Model.csprojResolveAssemblyReference.cache
+D:\documents\ASP.NET\CMS2.0\CMS.Model\obj\Release\CMS.Model.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Model\obj\Release\CMS.Model.pdb

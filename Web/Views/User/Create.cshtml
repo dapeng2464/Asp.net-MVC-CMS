@@ -1,0 +1,112 @@
+﻿@model CMS.Model.User
+@using CMS.Common;
+@using CMS.Admin;
+@{
+     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+           
+                $.ajax({
+                    url: "/User/Create",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            //alert("true");
+                            window.parent.frameReturnByMes("success");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                           // alert("fail");
+                            window.parent.frameReturnByMes("failed");
+                        }
+                    }
+                });
+        });
+    });
+    </script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "User", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+           <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.UserName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Password)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.Password)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.FirstName)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.FirstName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LastName)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.LastName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LastName)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PhoneNumber)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PhoneNumber)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EmailAddress)：
+                </td>
+               
+                <td>
+                    @Html.EditorFor(model => model.EmailAddress)
+                    </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.EmailAddress)
+                </td>
+            </tr>
+            
+              
+            
+             
+        </tbody>
+    </table>
+}
+

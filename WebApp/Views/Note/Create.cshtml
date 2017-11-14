@@ -1,0 +1,109 @@
+﻿@model CMS.Model.Note
+@using CMS.Common;
+@using CMS.Admin;
+@{
+     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+            $("#mes").html("");
+            if ($.trim($("#Category").val()) == "") {
+                $("#Category").addClass("input-validation-error").focus();
+                $("#mes1").html("Please select a category!");
+                 return;
+            }
+            if ($.trim($("#Title").val()) == "") {
+                $("#Title").addClass("input-validation-error").focus();
+                $("#mes2").html("Please input the title!");
+                return;
+            }
+            if ($.trim($("#Content").val()) == "") {
+                $("#Content").addClass("input-validation-error").focus();
+                $("#mes3").html("Please input the content!");
+                return;
+            }
+           
+                $.ajax({
+                    url: "/Note/Create",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            //alert("true");
+                            window.parent.frameReturnByMes("success");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                           // alert("fail");
+                            window.parent.frameReturnByMes("failed");
+                        }
+                    }
+                });
+        });
+    });
+    </script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">Save</span></span></a>
+    
+</div>
+@using (Html.BeginForm("Create", "Note", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Category)*：
+                </td>
+                @*<td style="width:310px">
+                    @Html.EditorFor(model => model.Category)
+                </td>*@
+                <td>
+                    @Html.DropDownListFor(model=>model.Category,ViewData["Category"] as List<SelectListItem>,"---Select---")
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Category)</td>
+                <td><div id="mes1" class="field-validation-error"> </div></td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Title)*：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Title)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Title)
+                </td>
+                <td><div id="mes2" class="field-validation-error"> </div></td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Content)*：
+                </td>
+               
+                <td>
+                    @Html.TextAreaFor(model => model.Content)
+                    </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Content)
+                </td>
+                <td><div id="mes3" class="field-validation-error"> </div></td>
+            </tr>
+            
+              
+            
+             
+        </tbody>
+    </table>
+}
+

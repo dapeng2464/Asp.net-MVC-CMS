@@ -1,0 +1,16 @@
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Admin.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Admin.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Model.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\EntityFramework.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Common.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\CMS.Model.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\EntityFramework.xml
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Release\CMS.Admin.csprojResolveAssemblyReference.cache
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Release\CMS.Admin.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Release\CMS.Admin.pdb

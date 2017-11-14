@@ -1,0 +1,17 @@
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.DAL.dll.config
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.DAL.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.DAL.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.IDAL.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.Model.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\EntityFramework.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.IDAL.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\CMS.Model.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\EntityFramework.xml
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\obj\Debug\CMS.DAL.csprojResolveAssemblyReference.cache
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\obj\Debug\CMS.DAL.dll
+D:\documents\ASP.NET\CMS2.0\CMS.DAL\obj\Debug\CMS.DAL.pdb

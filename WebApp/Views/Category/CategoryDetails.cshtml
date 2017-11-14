@@ -1,0 +1,102 @@
+﻿@model CMS.Model.Category
+@{
+    ViewBag.Title =" CategoryDetails";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+
+<html>
+    <head>
+        @Scripts.Render("~/bundles/Bootstrap")
+        @Styles.Render("~/bundles/Bootstrap")
+       
+    <title>Category Details</title>
+
+       
+    </head>
+    <body>
+        <label id=""></label>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="panel-header" style="width:400px"> 
+                        <p>Note of Category-"@ViewData["categoryName"]"</p>
+                    </div>
+                    <table id="NotesList" style="width:300px"></table>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                   <div class="panel-header" style="width:400px"> 
+                        <p>File of Category-"@ViewData["categoryName"]"</p>
+                    </div>
+                    <table id="FileList" style="width:300px"></table>
+                </div>
+            </div>
+            
+
+        </div>
+        
+
+        <script>
+            $(function () {
+                
+
+                $('#NotesList').datagrid({
+                    url: '/Note/GetListByCat?categoryName=' + "@ViewData["categoryName"]",
+                    width: 400,//$(window).width() - 10,
+                    methord: 'post',
+                    height: 320,//$(window).height() - 35,
+                    fitColumns: true,
+                    sortName: 'Id',
+                    sortOrder: 'desc',
+                    idField: 'Id',
+                    pageSize: 10,
+                    // pageList: [5, 10, 20, 30, 40, 50],
+                    pagination: true,
+                    striped: true, //奇偶行是否区分
+                    singleSelect: true,//单选模式
+                    rownumbers: true,//行号
+                    columns: [[
+                        { field: 'Title', title: 'Title', width: 80 },
+                        { field: 'Content', title: 'Content', width: 120 },
+                        //{ field: 'Category', title: 'Category', width: 80, align: 'right' },
+                        { field: 'CreatePerson', title: 'Create Person', width: 80, align: 'right' },
+                        { field: 'CreateTime', title: 'Create Time', width: 80, align: 'center' }
+                    ]]
+                });
+
+
+                $('#FileList').datagrid({
+                    url: '/File/GetListByCat?categoryName=' + "@ViewData["categoryName"]",
+                    width: 400,//$(window).width() - 10,
+                    methord: 'post',
+                    height: 320,//$(window).height() - 35,
+                    fitColumns: true,
+                    sortName: 'CreateTime',
+                    sortOrder: 'desc',
+                    idField: 'Id',
+                    pageSize: 10,
+                    // pageList: [5, 10, 20, 30, 40, 50],
+                    pagination: true,
+                    striped: true, //奇偶行是否区分
+                    singleSelect: true,//单选模式
+                    rownumbers: true,//行号
+                    columns: [[
+                        {
+                            field: 'FileName', title: 'FileName', width: 80,
+                            formatter: function (value, row, index) {
+                                return '<a style="color:blue" href="/File/Download?FileName=' + value + '">' + value + '</a>';
+                            }
+                        },
+                        { field: 'Description', title: 'Description', width: 100 },
+                       // { field: 'Category', title: 'Category', width: 80, align: 'right' },
+                        { field: 'CreatePerson', title: 'Create Person', width: 80, align: 'right' },
+                        { field: 'CreateTime', title: 'Create Time', width: 60, align: 'center' }
+                    ]]
+                });
+
+            });
+            function test() {
+                alert("@ViewData["categoryName"]");
+            }
+        </script>
+    </body>
+</html>

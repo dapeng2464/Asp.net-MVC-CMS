@@ -1,0 +1,109 @@
+﻿@using CMS.Admin;
+@using CMS.Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    
+  
+}
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+
+<div class="mvctool">
+@*<input id="txtQuery" type="text" class="searchText">
+<a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">Search</span></span></a><div class="datagrid-btn-separator"></div>*@
+<a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">Add</span></span></a><div class="datagrid-btn-separator"></div>
+
+@*<a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">Details</span></span></a><div class="datagrid-btn-separator"></div>*@
+<a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">Delete</span></span></a><div class="datagrid-btn-separator"></div>
+
+<a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">refresh</span></span></a>
+</div>
+<table id="List"></table>
+
+<script>
+    $(function () {
+        $('#List').datagrid({
+            url: '/File/GetList',
+            width: $(window).width() - 10,
+            methord: 'post',
+            height: $(window).height() - 35,
+            fitColumns: true,
+            sortName: 'Id',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 20,
+            pageList: [10,20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            rownumbers: true,//行号
+            columns: [[
+                {
+                    field: 'FileName', title: 'FileName', width: 80,
+                    formatter: function (value, row, index) {
+                        return '<a style="color:blue" href="/File/Download?FileName=' + value + '">' + value+ '</a>';
+                    }
+                },
+                { field: 'Description', title: 'Description', width: 60 },
+                { field: 'Category', title: 'Category', width: 80, align: 'left' },
+                { field: 'CreatePerson', title: 'Create Person', width: 60, align: 'center' },
+                { field: 'CreateTime', title: 'Create Time', width: 60, align: 'center' }
+            ]]
+        });
+    });
+
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    //iframe 返回并刷新
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    //输出信息
+    function frameReturnByMes(mes) {
+        $.messageBox5s('Message', mes);
+    }
+    $(function () {
+
+        $("#btnCreate").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/File/Upload'></iframe>");
+            $("#modalwindow").window({ title: 'New', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+        });
+       
+        $("#btnReload").click(function () {
+            window.location.reload();
+        });
+       
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            //如果查询条件为空默认查询全部
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#List').datagrid({
+                url: '/Note/GetList?queryStr=' + encodeURI(queryStr)
+            });
+
+        });
+        $("#btnDelete").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $.messager.confirm('Warming', 'Are you sure to delete?', function (r) {
+                    if (r) {
+                        $.post("/File/Delete?id=" + row.Id, function (data) {
+                            if (data.type == 1)
+                                $("#List").datagrid('load');
+                            $.messageBox5s('Warming', "Delete success!");
+                        }, "json");
+
+                    }
+                });
+            } else { $.messageBox5s('Warming', 'Please select a record!'); }
+        });
+    });
+</script>

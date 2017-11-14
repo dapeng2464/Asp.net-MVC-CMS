@@ -1,0 +1,65 @@
+﻿@model CMS.Model.Category
+@using CMS.Common;
+@using CMS.Admin;
+@{
+     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+           
+                $.ajax({
+                    url: "/Category/Create",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            //alert("true");
+                            window.parent.frameReturnByMes("success");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                           // alert("fail");
+                            window.parent.frameReturnByMes("failed");
+                        }
+                    }
+                });
+        });
+    });
+    </script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">Save</span></span></a>
+</div>
+@using(Html.BeginForm ( "Create", "Category", null, FormMethod.Post, new { Id = "CreateForm" } ))
+{
+    @Html.ValidationSummary(true)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Name)*：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.Name)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Name)</td>
+            </tr>
+            
+            
+              
+            
+             
+        </tbody>
+    </table>
+}
+

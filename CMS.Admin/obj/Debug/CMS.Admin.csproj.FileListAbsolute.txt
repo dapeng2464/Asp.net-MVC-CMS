@@ -1,0 +1,16 @@
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Admin.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Admin.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Model.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\EntityFramework.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Common.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\CMS.Model.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\EntityFramework.xml
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Debug\CMS.Admin.csprojResolveAssemblyReference.cache
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Debug\CMS.Admin.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Admin\obj\Debug\CMS.Admin.pdb

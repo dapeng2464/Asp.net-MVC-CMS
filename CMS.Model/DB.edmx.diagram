@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5bbd970fdd484baa96d87af960ea3829" Name="关系图1" ZoomLevel="86">
+        <EntityTypeShape EntityType="CMSDBModel.File" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.Note" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.SysModule" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.User" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CMSDBModel.FK_SysModule_SysModule" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CMSDBModel.SysSample" Width="1.5" PointX="10.24415452510312" PointY="15.961989335698071" />
+        <EntityTypeShape EntityType="CMSDBModel.Category" Width="1.5" PointX="5.659918821258433" PointY="4.9555158191153383" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,9 @@
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\CMS.Common.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\Unity.Abstractions.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\Unity.Container.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\Unity.Abstractions.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\bin\Release\Unity.Container.pdb
+D:\documents\ASP.NET\CMS2.0\CMS.Common\obj\Release\CMS.Common.csprojResolveAssemblyReference.cache
+D:\documents\ASP.NET\CMS2.0\CMS.Common\obj\Release\CMS.Common.dll
+D:\documents\ASP.NET\CMS2.0\CMS.Common\obj\Release\CMS.Common.pdb

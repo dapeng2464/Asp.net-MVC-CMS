@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = null;
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @Scripts.Render("~/bundles/Bootstrap")
+        @Styles.Render("~/bundles/Bootstrap")
+       
+    <title>Welcome</title>
+
+       
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="panel-header" style="width:400px"> 
+                        <a class="linkBtn" onclick="addNewTab('Note', '/Note/Index', '')">Note</a>
+                    </div>
+                    <table id="NotesList" style="width:300px"></table>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                   <div class="panel-header" style="width:400px"> 
+                        <a class="linkBtn" onclick="addNewTab('User', '/User/Index', '')">User</a>
+                    </div>
+                    <table id="UserList" style="width:300px"></table>
+                </div>
+            </div>
+            <div class="row" >
+                <br />
+                <div class="col-md-6 col-xs-12">
+                    <div class="panel-header" style="width:400px"> 
+                        <a class="linkBtn" onclick="addNewTab('File', '/File/Index', '')">File</a>
+                    </div>
+                    <table id="FileList" style="width:300px"></table>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <br />
+                    Future Components...
+                </div>
+            </div>
+
+        </div>
+
+
+         <script>
+             $(function () {
+                 $('#NotesList').datagrid({
+                     url: '/Note/GetList',
+                     width: 400,//$(window).width() - 10,
+                     methord: 'post',
+                     height: 320,//$(window).height() - 35,
+                     fitColumns: true,
+                     sortName: 'Id',
+                     sortOrder: 'desc',
+                     idField: 'Id',
+                     pageSize: 10,
+                    // pageList: [5, 10, 20, 30, 40, 50],
+                     pagination: true,
+                     striped: true, //奇偶行是否区分
+                     singleSelect: true,//单选模式
+                     rownumbers: true,//行号
+                     columns: [[
+                         { field: 'Title', title: 'Title', width: 80 },
+                         { field: 'Content', title: 'Content', width: 120 },
+                         { field: 'Category', title: 'Category', width: 80, align: 'right' },
+                         { field: 'CreatePerson', title: 'Create Person', width: 80, align: 'right' },
+                         { field: 'CreateTime', title: 'Create Time', width: 60, align: 'center' }
+                     ]]
+                 });
+             });
+
+             $(function () {
+                 $('#UserList').datagrid({
+                     url: '/User/GetList',
+                     width: 400,//$(window).width() - 10,
+                     methord: 'post',
+                     height: 320,//$(window).height() - 35,
+                     fitColumns: true,
+                     sortName: 'Id',
+                     sortOrder: 'desc',
+                     idField: 'Id',
+                     pageSize: 10,
+                     // pageList: [5, 10, 20, 30, 40, 50],
+                     pagination: true,
+                     striped: true, //奇偶行是否区分
+                     singleSelect: true,//单选模式
+                     rownumbers: true,//行号
+                     columns: [[
+                         { field: 'UserName', title: 'UserName', width: 80 },
+                         { field: 'PhoneNumber', title: 'Number', width: 60 },
+                         { field: 'EmailAddress', title: 'Email', width: 60, align: 'left' },
+                         { field: 'CreatePerson', title: 'Create Person', width: 80, align: 'left' },
+                         { field: 'CreateTime', title: 'Create Time', width: 60, align: 'center' }
+                     ]]
+                 });
+             });
+
+             $(function () {
+                 $('#FileList').datagrid({
+                     url: '/File/GetList',
+                     width: 400,//$(window).width() - 10,
+                     methord: 'post',
+                     height: 320,//$(window).height() - 35,
+                     fitColumns: true,
+                     sortName: 'CreateTime',
+                     sortOrder: 'desc',
+                     idField: 'Id',
+                     pageSize: 10,
+                     // pageList: [5, 10, 20, 30, 40, 50],
+                     pagination: true,
+                     striped: true, //奇偶行是否区分
+                     singleSelect: true,//单选模式
+                     rownumbers: true,//行号
+                     columns: [[
+                         { field: 'FileName', title: 'FileName', width: 80 },
+                         { field: 'Description', title: 'Description', width: 100 },
+                         { field: 'Category', title: 'Category', width: 80, align: 'right' },
+                         { field: 'CreatePerson', title: 'Create Person', width: 80, align: 'right' },
+                         { field: 'CreateTime', title: 'Create Time', width: 60, align: 'center' }
+                     ]]
+                 });
+             });
+
+             function addNewTab(subtitle, url, icon) {
+                 window.parent.addTab(subtitle, url, icon)
+
+             }
+         </script>
+
+    </body>
+
+</html>
